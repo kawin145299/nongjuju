@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Vocabulary Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Japanese Vocabulary Learning</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Add New Word</h2>
+            <input type="text" id="new-word" placeholder="Enter new word">
+            <select id="word-level">
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+            </select>
+            <button onclick="addWord()">Add Word</button>
+        </section>
+
+        <section>
+            <h2>Start Quiz</h2>
+            <div class="level-buttons">
+                <button onclick="startQuiz(1)">Start Level 1</button>
+                <button onclick="startQuiz(2)">Start Level 2</button>
+                <button onclick="startQuiz(3)">Start Level 3</button>
+            </div>
+        </section>
+
+        <section id="quiz-section" style="display: none;">
+            <h2>Word</h2>
+            <p id="current-word"></p>
+            <div class="quiz-buttons">
+                <button onclick="handleAnswer(true)">Correct</button>
+                <button onclick="handleAnswer(false)">Incorrect</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Statistics</h2>
+            <button onclick="showStatistics()">Show Statistics</button>
+            <canvas id="statisticsChart" width="400" height="200" style="display: none;"></canvas>
+        </section>        
+    </main>
+
+    <script src="script.js"></script>
+    <section>
+        <h2>รายการศัพท์</h2>
+        <table id="vocabulary-table">
+            <button onclick="deleteAllWords()">ลบคำศัพท์ทั้งหมด</button>
+            <thead>
+                <tr>
+                    <th>ระดับ</th>
+                    <th>คำศัพท์</th>
+                    <th>จัดการ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- แถวจะถูกเพิ่มโดยอัตโนมัติ -->
+            </tbody>
+        </table>
+    </section>    
+</body>
+</html>
